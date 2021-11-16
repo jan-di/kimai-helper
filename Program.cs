@@ -17,7 +17,9 @@ namespace KimaiHelper
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+
+            new FormMain();
+            Application.Run();
         }
     }
 }
