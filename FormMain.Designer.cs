@@ -159,6 +159,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMain";
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.Deactivate += new System.EventHandler(this.FormMain_Deactivate);
             this.contextMenuStrip1.ResumeLayout(false);

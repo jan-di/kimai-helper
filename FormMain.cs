@@ -25,7 +25,7 @@ namespace KimaiHelper
 
             client = new ApiClient(apiUrl, apiUser, apiKey);
 
-            var projects = client.GetProjects();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void FetchActiveTimesheet()
@@ -120,21 +120,21 @@ namespace KimaiHelper
 
         private void notifyIconMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Show();
-            Activate();
-            Top = Screen.PrimaryScreen.WorkingArea.Bottom - Height;
-            Left = Screen.PrimaryScreen.WorkingArea.Right - Width;
+            //Show();
+            //Activate();
+            //Top = Screen.PrimaryScreen.WorkingArea.Bottom - Height;
+            //Left = Screen.PrimaryScreen.WorkingArea.Right - Width;
         }
 
         private void FormMain_Deactivate(object sender, EventArgs e)
         {
-            Hide();
+            //Hide();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Save();
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

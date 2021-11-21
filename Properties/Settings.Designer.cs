@@ -26,6 +26,7 @@ namespace KimaiHelper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost")]
         public string ApiUrl {
             get {
                 return ((string)(this["ApiUrl"]));

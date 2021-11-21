@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KimaiHelper.Kimai.Model
 {
-    internal class Project
+    public class Project
     {
         public Project(int id)
         {

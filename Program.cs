@@ -18,8 +18,9 @@ namespace KimaiHelper
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new FormMain();
-            Application.Run();
+            AppContext appContext = new AppContext();
+            Application.Run(appContext);
+            appContext.OnExit();
         }
     }
 }
