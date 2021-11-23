@@ -59,5 +59,51 @@ namespace KimaiHelper.Properties {
                 this["ApiKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int ProjectId {
+            get {
+                return ((int)(this["ProjectId"]));
+            }
+            set {
+                this["ProjectId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ProjectName {
+            get {
+                return ((string)(this["ProjectName"]));
+            }
+            set {
+                this["ProjectName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int ActivityId {
+            get {
+                return ((int)(this["ActivityId"]));
+            }
+            set {
+                this["ActivityId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ActivityName {
+            get {
+                return ((string)(this["ActivityName"]));
+            }
+            set {
+                this["ActivityName"] = value;
+            }
+        }
     }
 }

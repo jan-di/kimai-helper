@@ -65,7 +65,7 @@
             this.groupBox1.Controls.Add(this.textBoxApiUrl);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 248);
+            this.groupBox1.Size = new System.Drawing.Size(700, 197);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kimai-Server";
@@ -81,7 +81,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 166);
+            this.label5.Location = new System.Drawing.Point(6, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 15);
             this.label5.TabIndex = 11;
@@ -92,7 +92,7 @@
             this.comboBoxActivities.DisplayMember = "Name";
             this.comboBoxActivities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxActivities.FormattingEnabled = true;
-            this.comboBoxActivities.Location = new System.Drawing.Point(105, 163);
+            this.comboBoxActivities.Location = new System.Drawing.Point(105, 140);
             this.comboBoxActivities.Name = "comboBoxActivities";
             this.comboBoxActivities.Size = new System.Drawing.Size(204, 23);
             this.comboBoxActivities.TabIndex = 10;
@@ -100,7 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 137);
+            this.label4.Location = new System.Drawing.Point(6, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 15);
             this.label4.TabIndex = 9;
@@ -111,14 +111,14 @@
             this.comboBoxProjects.DisplayMember = "Name";
             this.comboBoxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProjects.FormattingEnabled = true;
-            this.comboBoxProjects.Location = new System.Drawing.Point(105, 134);
+            this.comboBoxProjects.Location = new System.Drawing.Point(105, 111);
             this.comboBoxProjects.Name = "comboBoxProjects";
             this.comboBoxProjects.Size = new System.Drawing.Size(204, 23);
             this.comboBoxProjects.TabIndex = 8;
             // 
             // buttonTestApi
             // 
-            this.buttonTestApi.Location = new System.Drawing.Point(572, 110);
+            this.buttonTestApi.Location = new System.Drawing.Point(572, 111);
             this.buttonTestApi.Name = "buttonTestApi";
             this.buttonTestApi.Size = new System.Drawing.Size(122, 23);
             this.buttonTestApi.TabIndex = 7;
@@ -187,10 +187,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 450);
+            this.ClientSize = new System.Drawing.Size(724, 221);
             this.Controls.Add(this.groupBox1);
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
+            this.Text = "Kimai Helper Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.VisibleChanged += new System.EventHandler(this.SettingsForm_VisibleChanged);
             this.groupBox1.ResumeLayout(false);

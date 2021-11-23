@@ -23,7 +23,7 @@ namespace KimaiHelper
             string apiUser = Properties.Settings.Default.ApiUser;
             string apiKey = Properties.Settings.Default.ApiKey;
 
-            client = new ApiClient(apiUrl, apiUser, apiKey);
+            client = new ApiClient(apiUrl, apiUser, apiKey, 10000);
 
             this.WindowState = FormWindowState.Minimized;
         }

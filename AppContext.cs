@@ -37,7 +37,7 @@ namespace KimaiHelper
             string apiUser = Settings.Default.ApiUser;
             string apiKey = Settings.Default.ApiKey;
 
-            apiClient = new ApiClient(apiUrl, apiUser, apiKey);
+            apiClient = new ApiClient(apiUrl, apiUser, apiKey, 100000);
         }
 
         public void ShowSummaryForm()

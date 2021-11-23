@@ -14,14 +14,9 @@ namespace KimaiHelper.Kimai
     {
         public IRestClient restClient;
 
-        public ApiClient(string url, string user, string key)
+        public ApiClient(string url, string user, string key, int timeout)
         {
-            SetApi(url, user, key);
-        }
-
-        public void SetApi(string url, string user, string key)
-        {
-            restClient = CreateRestClient(url, user, key);
+            restClient = CreateRestClient(url, user, key, timeout);
         }
 
         public async Task<ServerVersion> GetServerVersion()
@@ -86,13 +81,13 @@ namespace KimaiHelper.Kimai
             restClient.Patch(request);
         }
 
-        private IRestClient CreateRestClient(string url, string user, string key)
+        private IRestClient CreateRestClient(string url, string user, string key, int timeout)
         {
             IRestClient restClient = new RestClient(url);
             restClient.UseNewtonsoftJson();
             restClient.AddDefaultHeader("X-AUTH-USER", user);
             restClient.AddDefaultHeader("X-AUTH-TOKEN", key);
-            restClient.Timeout = 10000;
+            restClient.Timeout = timeout;
 
             return restClient;
         }
