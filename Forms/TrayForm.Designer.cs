@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.trayItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayItemToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.trayItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.trayItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.trayMenu.SuspendLayout();
             this.SuspendLayout();
@@ -46,28 +48,42 @@
             // trayMenu
             // 
             this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trayItemSettings,
+            this.trayItemToggle,
             this.toolStripSeparator1,
+            this.trayItemSettings,
+            this.toolStripSeparator2,
             this.trayItemExit});
             this.trayMenu.Name = "trayMenu";
-            this.trayMenu.Size = new System.Drawing.Size(117, 54);
+            this.trayMenu.Size = new System.Drawing.Size(118, 82);
             // 
-            // trayItemSettings
+            // trayItemToggle
             // 
-            this.trayItemSettings.Name = "trayItemSettings";
-            this.trayItemSettings.Size = new System.Drawing.Size(180, 22);
-            this.trayItemSettings.Text = "Settings";
-            this.trayItemSettings.Click += new System.EventHandler(this.trayItemSettings_Click);
+            this.trayItemToggle.Name = "trayItemToggle";
+            this.trayItemToggle.Size = new System.Drawing.Size(117, 22);
+            this.trayItemToggle.Text = "(Toggle)";
+            this.trayItemToggle.Click += new System.EventHandler(this.trayItemToggle_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(114, 6);
+            // 
+            // trayItemSettings
+            // 
+            this.trayItemSettings.Name = "trayItemSettings";
+            this.trayItemSettings.Size = new System.Drawing.Size(117, 22);
+            this.trayItemSettings.Text = "Settings";
+            this.trayItemSettings.Click += new System.EventHandler(this.trayItemSettings_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(114, 6);
             // 
             // trayItemExit
             // 
             this.trayItemExit.Name = "trayItemExit";
-            this.trayItemExit.Size = new System.Drawing.Size(180, 22);
+            this.trayItemExit.Size = new System.Drawing.Size(117, 22);
             this.trayItemExit.Text = "Exit";
             this.trayItemExit.Click += new System.EventHandler(this.trayItemExit_Click);
             // 
@@ -90,5 +106,7 @@
         private System.Windows.Forms.ToolStripMenuItem trayItemExit;
         private System.Windows.Forms.ToolStripMenuItem trayItemSettings;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem trayItemToggle;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KimaiHelper.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,56 @@ namespace KimaiHelper.Forms
 
             InitializeComponent();
 
-            trayIcon.Icon = SystemIcons.Asterisk;
             trayIcon.ContextMenuStrip = trayMenu;
+
+            appContext.TimesheetStatusChanged += OnTimesheetStatusChanged;
+
+            UpdateForm();
+        }
+
+        private void UpdateForm()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(UpdateForm);
+                return;
+            }
+
+            switch (appContext.TimesheetStatus)
+            {
+                case TimesheetStatus.Unknown:
+                    trayIcon.Icon = Resource.IconUnknown;
+                    trayItemToggle.Text = "Connecting..";
+                    trayItemToggle.Enabled = false;
+                    break;
+                case TimesheetStatus.Started:
+                    trayIcon.Icon = Resource.IconStart;
+                    trayItemToggle.Text = "Stop";
+                    trayItemToggle.Enabled = true;
+                    break;
+                case TimesheetStatus.StartPending:
+                    trayIcon.Icon = Resource.IconStart;
+                    trayItemToggle.Text = "Starting..";
+                    trayItemToggle.Enabled = false;
+                    break;
+                case TimesheetStatus.Stopped:
+                    trayIcon.Icon = Resource.IconPause;
+                    trayItemToggle.Text = "Start";
+                    trayItemToggle.Enabled = true;
+                    break;
+                case TimesheetStatus.StopPending:
+                    trayIcon.Icon = Resource.IconPause;
+                    trayItemToggle.Text = "Stopping..";
+                    trayItemToggle.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void OnTimesheetStatusChanged(object sender, EventArgs e)
+        {
+            UpdateForm();
         }
 
         private void trayItemExit_Click(object sender, EventArgs e)
@@ -37,6 +86,11 @@ namespace KimaiHelper.Forms
         private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             appContext.ShowSummaryForm();
+        }
+
+        private async void trayItemToggle_Click(object sender, EventArgs e)
+        {
+            await appContext.ToggleTimesheet();
         }
     }
 }

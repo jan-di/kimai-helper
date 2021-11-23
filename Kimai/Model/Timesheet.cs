@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KimaiHelper.Kimai.Model
 {
-    internal class Timesheet
+    public class Timesheet
     {
         public int Id { get; set; }
 

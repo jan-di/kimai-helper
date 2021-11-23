@@ -31,54 +31,49 @@ namespace KimaiHelper.Kimai
 
         public async Task<List<Project>> GetProjects()
         {
-            IRestRequest request = new RestRequest("projects", Method.GET, DataFormat.Json);
-
-            IRestResponse response = await restClient.ExecuteAsync(request);
-            HandleResponseErrors(response);
-
-            return JsonConvert.DeserializeObject<List<Project>>(response.Content);
+            IRestRequest request = new RestRequest("projects");
+            return await SendRequestWithResponse<List<Project>>(request);
         }
 
         public async Task<List<Activity>> GetActivities()
         {
-            IRestRequest request = new RestRequest("activities", Method.GET, DataFormat.Json);
-
-            IRestResponse response = await restClient.ExecuteAsync(request);
-            HandleResponseErrors(response);
-
-            return JsonConvert.DeserializeObject<List<Activity>>(response.Content);
+            IRestRequest request = new RestRequest("activities");
+            return await SendRequestWithResponse<List<Activity>>(request);
         }
 
-        public List<Timesheet> GetActiveTimesheets()
+        public async Task<List<Timesheet>> GetActiveTimesheets()
         {
-            IRestRequest request = new RestRequest("timesheets/active", DataFormat.Json);
-
-            var resp = restClient.Get(request);
-
-            return JsonConvert.DeserializeObject<List<Timesheet>>(resp.Content);
+            IRestRequest request = new RestRequest("timesheets/active");
+            return await SendRequestWithResponse<List<Timesheet>>(request);
         }
 
-        public void StartTimesheet(Project project, Activity activity, DateTime? begin = null)
+        public async Task<Timesheet> StartTimesheet(Project project, Activity activity)
         {
-            begin = begin ?? DateTime.Now;
-
-            IRestRequest request = new RestRequest("timesheets", DataFormat.Json)
+            IRestRequest request = new RestRequest("timesheets", Method.POST)
             .AddJsonBody(new
             {
-                begin = begin,
+                begin = DateTime.Now,
                 project = project.Id,
                 activity = activity.Id
             });
 
-            restClient.Post(request);
+            return await SendRequestWithResponse<Timesheet>(request);
         }
 
-        public void StopTimesheet(Timesheet timesheet)
+        public async Task<Timesheet> StopTimesheet(Timesheet timesheet)
         {
-            IRestRequest request = new RestRequest("timesheets/{id}/stop", DataFormat.Json)
+            IRestRequest request = new RestRequest("timesheets/{id}/stop", Method.PATCH)
                 .AddUrlSegment("id", timesheet.Id);
 
-            restClient.Patch(request);
+            return await SendRequestWithResponse<Timesheet>(request);
+        }
+
+        private async Task<T> SendRequestWithResponse<T>(IRestRequest request) 
+        {
+            IRestResponse response = await restClient.ExecuteAsync(request);
+            HandleResponseErrors(response);
+
+            return JsonConvert.DeserializeObject<T>(response.Content);
         }
 
         private IRestClient CreateRestClient(string url, string user, string key, int timeout)

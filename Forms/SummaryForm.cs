@@ -19,11 +19,31 @@ namespace KimaiHelper.Forms
             this.appContext = appContext;
 
             InitializeComponent();
+
+            appContext.TimesheetStatusChanged += OnTimesheetStatusChanged;
+
+            UpdateForm();
+        }
+
+        private void UpdateForm()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(UpdateForm);
+                return;
+            }
+
+            labelTimesheetStatus.Text = appContext.TimesheetStatus.ToString();
+        }
+
+        private void OnTimesheetStatusChanged(object sender, EventArgs e)
+        {
+            UpdateForm();
         }
 
         private void SummaryForm_Deactivate(object sender, EventArgs e)
         {
-            Hide();
+            //Hide();
         }
 
         private void SummaryForm_VisibleChanged(object sender, EventArgs e)
